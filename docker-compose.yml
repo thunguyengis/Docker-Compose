@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  backend:
+    image: backend
+
+  db:
+    image: mysql
+
+  db-migrations:
+    image: backend
+    command: myapp migrate
+    depends_on:
+      - db
+    profiles:
+      - tools
